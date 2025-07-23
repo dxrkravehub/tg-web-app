@@ -1,0 +1,504 @@
+/* AlienWaste Telegram Web App Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background: linear-gradient(135deg, #000000, #1A1A1A);
+    color: #FFFFFF;
+    overflow-x: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.screen {
+    display: none;
+    min-height: 100vh;
+    padding: 20px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Loading Screen */
+#loading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.alien-loader {
+    font-size: 60px;
+    animation: pulse 2s infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.loading-text {
+    font-size: 16px;
+    color: #00FF41;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.loading-bar {
+    width: 200px;
+    height: 4px;
+    background: #333333;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.loading-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #00FF41, #0080FF);
+    width: 0%;
+    animation: loading 3s ease-in-out forwards;
+}
+
+@keyframes loading {
+    to { width: 100%; }
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 0 10px;
+}
+
+.title {
+    font-size: 18px;
+    color: #00FF41;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.points-container {
+    display: flex;
+    align-items: center;
+    background: #1A1A1A;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #00FF41;
+}
+
+.points-container .icon {
+    margin-right: 6px;
+    color: #00FF41;
+}
+
+.back-button {
+    background: none;
+    border: 1px solid #666666;
+    color: #FFFFFF;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    border-color: #00FF41;
+    color: #00FF41;
+}
+
+/* Alien Section */
+.alien-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.alien-container {
+    margin-bottom: 20px;
+}
+
+.alien-character {
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.alien-character:hover {
+    transform: scale(1.05);
+}
+
+.alien-body {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #8A2BE2, #9932CC);
+    border-radius: 50%;
+    border: 3px solid #00FF41;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: alienPulse 3s infinite;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+}
+
+@keyframes alienPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+.alien-eyes {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.eye {
+    width: 12px;
+    height: 12px;
+    background: #0080FF;
+    border-radius: 50%;
+    border: 1px solid #FFFFFF;
+    animation: blink 4s infinite;
+}
+
+@keyframes blink {
+    0%, 90%, 100% { transform: scaleY(1); }
+    95% { transform: scaleY(0.1); }
+}
+
+.alien-mouth {
+    width: 16px;
+    height: 8px;
+    background: #00FF41;
+    border-radius: 8px;
+    border: 1px solid #FFFFFF;
+}
+
+.alien-level {
+    font-size: 12px;
+    color: #00FF41;
+    background: #000000;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* Hunger Bar */
+.hunger-container {
+    margin-top: 20px;
+}
+
+.hunger-label {
+    font-size: 12px;
+    color: #666666;
+    margin-bottom: 8px;
+}
+
+.hunger-bar {
+    width: 80%;
+    height: 8px;
+    background: #333333;
+    border-radius: 4px;
+    margin: 0 auto 8px;
+    overflow: hidden;
+}
+
+.hunger-fill {
+    height: 100%;
+    background: #00FF41;
+    transition: width 0.5s ease;
+}
+
+.hunger-percent {
+    font-size: 12px;
+    color: #00FF41;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: #1A1A1A;
+    border: 1px solid #333333;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    border-color: #00FF41;
+    transform: translateY(-2px);
+}
+
+.stat-icon {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    font-size: 10px;
+    color: #666666;
+}
+
+/* Mission Card */
+.mission-card {
+    background: #1A1A1A;
+    border: 1px solid #0080FF;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.mission-card.completed {
+    border-color: #00FF41;
+    background: #0A1A0A;
+}
+
+.mission-title {
+    font-size: 14px;
+    color: #0080FF;
+    margin-bottom: 8px;
+}
+
+.mission-text {
+    font-size: 12px;
+    color: #FFFFFF;
+    margin-bottom: 15px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: #333333;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #0080FF;
+    transition: width 0.5s ease;
+}
+
+.mission-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.progress-text {
+    font-size: 10px;
+    color: #666666;
+}
+
+.complete-btn {
+    background: #0080FF;
+    border: none;
+    color: #FFFFFF;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.complete-btn:hover {
+    background: #0066CC;
+    transform: scale(1.05);
+}
+
+.complete-btn:disabled {
+    background: #666666;
+    cursor: not-allowed;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.scan-button, .stats-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #00FF41, #00CC33);
+    border: none;
+    color: #000000;
+    padding: 16px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.stats-button {
+    background: linear-gradient(135deg, #0080FF, #0066CC);
+    color: #FFFFFF;
+}
+
+.scan-button:hover, .stats-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.scan-button:active, .stats-button:active {
+    transform: translateY(0);
+}
+
+.button-icon {
+    font-size: 20px;
+}
+
+/* Stats Screen */
+.stats-detailed {
+    background: #1A1A1A;
+    border: 1px solid #333333;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #333333;
+    font-size: 14px;
+}
+
+.stat-row:last-child {
+    border-bottom: none;
+}
+
+.stat-row span:last-child {
+    color: #00FF41;
+    font-weight: bold;
+}
+
+/* Recent Activity */
+.recent-activity h3 {
+    font-size: 14px;
+    color: #00FF41;
+    margin-bottom: 15px;
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    background: #1A1A1A;
+    border: 1px solid #333333;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.activity-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    background: #333333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    font-size: 16px;
+}
+
+.activity-info {
+    flex: 1;
+}
+
+.activity-text {
+    font-size: 12px;
+    color: #FFFFFF;
+    margin-bottom: 2px;
+}
+
+.activity-time {
+    font-size: 10px;
+    color: #666666;
+}
+
+.activity-points {
+    font-size: 12px;
+    color: #00FF41;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .screen {
+        padding: 15px;
+    }
+    
+    .title {
+        font-size: 16px;
+    }
+    
+    .alien-body {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .stats-grid {
+        gap: 10px;
+    }
+    
+    .stat-card {
+        padding: 15px;
+    }
+}
+
+/* Telegram Web App specific styles */
+.tg-viewport {
+    height: 100vh;
+}
+
+/* Hide scrollbars but keep functionality */
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}

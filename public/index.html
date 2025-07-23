@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlienWaste - Eco Gaming</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Loading Screen -->
+        <div id="loading" class="screen active">
+            <div class="alien-loader">👽</div>
+            <div class="loading-text">INITIALIZING_ALIEN_WASTE.EXE</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+
+        <!-- Main Game Screen -->
+        <div id="game" class="screen">
+            <!-- Header -->
+            <div class="header">
+                <div class="title">ALIEN_WASTE.EXE</div>
+                <div class="points-container">
+                    <span class="icon">⚡</span>
+                    <span id="ecoPoints">0</span>
+                </div>
+            </div>
+
+            <!-- Alien Character -->
+            <div class="alien-section">
+                <div class="alien-container">
+                    <div id="alienCharacter" class="alien-character">
+                        <div class="alien-body">
+                            <div class="alien-eyes">
+                                <div class="eye"></div>
+                                <div class="eye"></div>
+                            </div>
+                            <div class="alien-mouth"></div>
+                        </div>
+                    </div>
+                    <div id="alienLevel" class="alien-level">LVL 1</div>
+                </div>
+                
+                <!-- Hunger Bar -->
+                <div class="hunger-container">
+                    <div class="hunger-label">HUNGER_LEVEL</div>
+                    <div class="hunger-bar">
+                        <div id="hungerFill" class="hunger-fill"></div>
+                    </div>
+                    <div id="hungerPercent" class="hunger-percent">50%</div>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">🎯</div>
+                    <div id="totalScans" class="stat-value">0</div>
+                    <div class="stat-label">SCANS</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🔥</div>
+                    <div id="streakDays" class="stat-value">0</div>
+                    <div class="stat-label">STREAK</div>
+                </div>
+            </div>
+
+            <!-- Daily Mission -->
+            <div id="missionCard" class="mission-card">
+                <div class="mission-title">DAILY_MISSION</div>
+                <div id="missionText" class="mission-text">Feed 5 items to your alien</div>
+                <div class="progress-bar">
+                    <div id="missionProgress" class="progress-fill"></div>
+                </div>
+                <div class="mission-footer">
+                    <span id="progressText" class="progress-text">0/5 completed</span>
+                    <button id="completeMissionBtn" class="complete-btn">COMPLETE</button>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button id="scanWasteBtn" class="scan-button">
+                    <span class="button-icon">📷</span>
+                    <span>SCAN_WASTE</span>
+                </button>
+                <button id="viewStatsBtn" class="stats-button">
+                    <span class="button-icon">📊</span>
+                    <span>VIEW_STATS</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Stats Screen -->
+        <div id="stats" class="screen">
+            <div class="header">
+                <button id="backBtn" class="back-button">← BACK</button>
+                <div class="title">STATISTICS</div>
+            </div>
+            
+            <div class="stats-detailed">
+                <div class="stat-row">
+                    <span>Alien Level:</span>
+                    <span id="statAlienLevel">1</span>
+                </div>
+                <div class="stat-row">
+                    <span>Eco Points:</span>
+                    <span id="statEcoPoints">0</span>
+                </div>
+                <div class="stat-row">
+                    <span>Total Scans:</span>
+                    <span id="statTotalScans">0</span>
+                </div>
+                <div class="stat-row">
+                    <span>Accuracy:</span>
+                    <span id="statAccuracy">100%</span>
+                </div>
+                <div class="stat-row">
+                    <span>Streak Days:</span>
+                    <span id="statStreakDays">0</span>
+                </div>
+            </div>
+
+            <div class="recent-activity">
+                <h3>RECENT_ACTIVITY</h3>
+                <div id="activityList" class="activity-list">
+                    <!-- Activity items will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
